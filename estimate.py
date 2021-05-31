@@ -29,5 +29,27 @@ class TestMC(unittest.TestCase):
         
     
 if __name__ == "__main__":
-    
     unittest.main()
+ 
+import random
+
+
+def wallis(n):
+ pie=2
+ for i in range(1,n):
+  p=(4*i**2/(4*i**2-1))
+  pie=pie*p
+ return(pie)
+
+
+def monte_carlo(n):
+ inside=0
+ total=n
+ for i in range(1,n):
+  x=random.random()
+  y=random.random()
+  distance=x**2+y**2
+  if distance<=1:
+   inside=inside+1
+ pie=float(4*inside/total)
+ return (pie)
